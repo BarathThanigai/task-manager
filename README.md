@@ -1,6 +1,6 @@
 # FastAPI Task Manager
 
-A simple full-stack Task Manager built for the internship assignment. It includes:
+A simple full-stack Task Manager. It includes:
 
 - FastAPI REST API
 - JWT authentication
@@ -85,17 +85,3 @@ Run the full stack with Docker Compose:
 ```bash
 docker compose up --build
 ```
-
-## Deployment Notes
-
-This project is ready to deploy on Render or Railway as a single web service.
-
-- Build command: `pip install -r requirements.txt`
-- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT --app-dir backend`
-- Ensure environment variables are set in the platform dashboard
-- Keep `.env` out of version control
-
-Add your final public deployment URL here before submission:
-
-- Deployment link: `REPLACE_WITH_DEPLOYED_URL`
-- GitHub repository: `REPLACE_WITH_PUBLIC_GITHUB_REPO_URL`
