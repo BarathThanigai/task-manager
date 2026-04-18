@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager - Tasks</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="panel">
+      <h1>Task Manager</h1>
+      <p class="subtitle">Welcome back, <span id="user-name"></span></p>
+
+      <div class="card">
+        <div class="task-header">
+          <div>
+            <h2>Your Tasks</h2>
+          </div>
+          <button id="logout-btn" class="secondary" type="button">Logout</button>
+        </div>
+
+        <form id="task-form" class="inline-form">
+          <input name="title" type="text" placeholder="Task title" required />
+          <input name="description" type="text" placeholder="Description (optional)" />
+          <button type="submit">Add task</button>
+        </form>
+
+        <div class="toolbar">
+          <label for="filter-completed">Filter:</label>
+          <select id="filter-completed">
+            <option value="">All</option>
+            <option value="false">Pending</option>
+            <option value="true">Completed</option>
+          </select>
+        </div>
+
+        <div id="task-list" class="task-list"></div>
+
+        <div class="pagination">
+          <button id="prev-btn" class="secondary" type="button">Previous</button>
+          <span id="page-label">Page 1</span>
+          <button id="next-btn" class="secondary" type="button">Next</button>
+        </div>
+      </div>
+
+      <p id="message-box" class="message"></p>
+    </section>
+  </main>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>

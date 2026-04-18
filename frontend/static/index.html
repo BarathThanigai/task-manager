@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager - Login</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="panel">
+      <h1>Task Manager</h1>
+      <p class="subtitle">Login to access your tasks.</p>
+
+      <form id="login-form" class="card">
+        <h2>Login</h2>
+        <input name="username" id="login-username" type="text" placeholder="Username" required />
+        <input name="password" id="login-password" type="password" placeholder="Password" required />
+        <button id="login-button" type="button">Login</button>
+        <p>Don't have an account? <a href="/static/register.html">Register</a></p>
+      </form>
+
+      <p id="message-box" class="message"></p>
+    </section>
+  </main>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
+

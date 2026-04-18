@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager - Register</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="panel">
+      <h1>Task Manager</h1>
+      <p class="subtitle">Register and start managing tasks.</p>
+
+      <form id="register-form" class="card">
+        <h2>Register</h2>
+        <input name="username" id="register-username" type="text" placeholder="Username" required />
+        <input name="email" id="register-email" type="email" placeholder="Email" required />
+        <input name="password" id="register-password" type="password" placeholder="Password" required />
+        <button id="register-button" type="button">Create account</button>
+        <p class="helper">Password must be at least 6 characters.</p>
+        <p>Already have an account? <a href="/">Login</a></p>
+      </form>
+
+      <p id="message-box" class="message"></p>
+    </section>
+  </main>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
