@@ -1,9 +1,13 @@
+import time
+from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy import text
+from sqlalchemy.exc import OperationalError
 
 from app.api.auth import router as auth_router
 from app.api.tasks import router as tasks_router
@@ -13,7 +17,31 @@ import app.models  # noqa: F401
 
 
 settings = get_settings()
-app = FastAPI(title=settings.app_name)
+
+def initialize_database() -> None:
+    last_error = None
+    for attempt in range(1, settings.db_connect_max_retries + 1):
+        try:
+            with engine.connect() as connection:
+                connection.execute(text("SELECT 1"))
+            Base.metadata.create_all(bind=engine)
+            return
+        except OperationalError as exc:
+            last_error = exc
+            if attempt == settings.db_connect_max_retries:
+                break
+            time.sleep(settings.db_connect_retry_delay_seconds)
+
+    raise RuntimeError("Database initialization failed after retries") from last_error
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    initialize_database()
+    yield
+
+
+app = FastAPI(title=settings.app_name, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,8 +50,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-Base.metadata.create_all(bind=engine)
 
 app.include_router(auth_router)
 app.include_router(tasks_router)
@@ -39,4 +65,9 @@ def serve_frontend() -> FileResponse:
 
 @app.get("/health", tags=["Health"])
 def health_check() -> dict[str, str]:
+    try:
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+    except OperationalError as exc:
+        raise HTTPException(status_code=503, detail="Database unavailable") from exc
     return {"status": "ok"}

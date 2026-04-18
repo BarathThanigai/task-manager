@@ -46,6 +46,8 @@ Create a `.env` file locally using `.env.example`.
 ```env
 SECRET_KEY=replace-with-a-secure-random-string
 ACCESS_TOKEN_EXPIRE_MINUTES=60
+DB_CONNECT_MAX_RETRIES=10
+DB_CONNECT_RETRY_DELAY_SECONDS=2
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=replace-with-a-secure-password
 POSTGRES_DB=task_manager
@@ -85,3 +87,21 @@ Run the full stack with Docker Compose:
 ```bash
 docker compose up --build
 ```
+
+For local development, keep `DATABASE_URL` pointed at `localhost`.
+For Docker Compose, the app service overrides `DATABASE_URL` internally to use the Docker hostname `db`.
+
+## Deployment Notes
+
+This project is ready to deploy on Render or Railway as a single web service.
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT --app-dir backend`
+- Ensure environment variables are set in the platform dashboard
+- Keep `.env` out of version control
+- Use a managed PostgreSQL instance and set `DATABASE_URL` from the provider connection string
+
+Add your final public deployment URL here before submission:
+
+- Deployment link: `REPLACE_WITH_DEPLOYED_URL`
+- GitHub repository: `REPLACE_WITH_PUBLIC_GITHUB_REPO_URL`
