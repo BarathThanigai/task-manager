@@ -103,5 +103,5 @@ This project is ready to deploy on Render or Railway as a single web service.
 
 Add your final public deployment URL here before submission:
 
-- Deployment link: `REPLACE_WITH_DEPLOYED_URL`
-- GitHub repository: `REPLACE_WITH_PUBLIC_GITHUB_REPO_URL`
+- Deployment link: `https://task-manager-mcgk.onrender.com/`
+- GitHub repository: `https://github.com/BarathThanigai/task-manager`
