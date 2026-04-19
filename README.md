@@ -1,11 +1,18 @@
-# FastAPI Task Manager
+## Task Manager Application
+A simple full-stack task management application with authentication and CRUD functionality.
+This Task Manager application allows users to create an account and securely log in to manage their tasks. Users can add, view, and access details of their tasks, as well as mark them as completed or delete them when no longer needed. Each user can access only their own tasks, ensuring privacy and proper task management.
 
-A simple full-stack Task Manager. It includes:
+  - Deployment link: `https://task-manager-mcgk.onrender.com/`
+  - GitHub repository: `https://github.com/BarathThanigai/task-manager`
+
+## Overview
+
+A simple full-stack Task Manager application that includes:
 
 - FastAPI REST API
 - JWT authentication
 - PostgreSQL database with SQLAlchemy
-- Basic responsive frontend using HTML, CSS, and JavaScript
+- Simple responsive frontend using HTML, CSS, and JavaScript
 - Task pagination and completion filtering
 - Pytest test coverage
 - Docker support
@@ -26,7 +33,17 @@ frontend/
 tests/
 ```
 
-## Features
+## Tech Stack
+- Backend: FastAPI
+- Database: PostgreSQL
+- ORM: SQLAlchemy
+- Frontend: HTML, CSS, JavaScript
+- Authentication: JWT
+- Testing: Pytest
+- Containerization: Docker
+
+
+## API Endpoints
 
 - `POST /register` for user registration
 - `POST /login` for JWT login
@@ -101,8 +118,3 @@ This project is ready to deploy on Render or Railway as a single web service.
 - Ensure environment variables are set in the platform dashboard
 - Keep `.env` out of version control
 - Use a managed PostgreSQL instance and set `DATABASE_URL` from the provider connection string
-
-Add your final public deployment URL here before submission:
-
-- Deployment link: `https://task-manager-mcgk.onrender.com/`
-- GitHub repository: `https://github.com/BarathThanigai/task-manager`
