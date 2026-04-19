@@ -82,6 +82,7 @@ pytest
 
 ## Docker
 
+The project is fully containerized using Docker and can be run using docker-compose.
 Run the full stack with Docker Compose:
 
 ```bash
