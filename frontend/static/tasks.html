@@ -9,15 +9,21 @@
 <body>
   <main class="page">
     <section class="panel">
-      <h1>Task Manager</h1>
-      <p class="subtitle">Welcome back, <span id="user-name"></span></p>
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">Task dashboard</p>
+          <h1>Task Manager</h1>
+          <p class="subtitle">Welcome back, <span id="user-name"></span></p>
+        </div>
+        <button id="logout-btn" class="secondary logout-btn" type="button">Logout</button>
+      </div>
 
       <div class="card">
         <div class="task-header">
           <div>
             <h2>Your Tasks</h2>
+            <p class="helper">Create, filter, complete, and delete tasks from one place.</p>
           </div>
-          <button id="logout-btn" class="secondary" type="button">Logout</button>
         </div>
 
         <form id="task-form" class="inline-form">

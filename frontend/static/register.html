@@ -8,18 +8,26 @@
 </head>
 <body>
   <main class="page">
-    <section class="panel">
-      <h1>Task Manager</h1>
-      <p class="subtitle">Register and start managing tasks.</p>
+    <section class="panel auth-shell">
+      <div class="auth-copy">
+        <p class="eyebrow">Get started in seconds</p>
+        <h1>Create your account</h1>
+        <p class="subtitle">Register once and you’ll be able to create and manage tasks from anywhere.</p>
+        <div class="feature-list">
+          <span>Quick signup</span>
+          <span>Secure passwords</span>
+          <span>Responsive dashboard</span>
+        </div>
+      </div>
 
-      <form id="register-form" class="card">
+      <form id="register-form" class="card auth-card">
         <h2>Register</h2>
         <input name="username" id="register-username" type="text" placeholder="Username" required />
         <input name="email" id="register-email" type="email" placeholder="Email" required />
         <input name="password" id="register-password" type="password" placeholder="Password" required />
         <button id="register-button" type="button">Create account</button>
         <p class="helper">Password must be at least 6 characters.</p>
-        <p>Already have an account? <a href="/">Login</a></p>
+        <p class="switch-link">Already have an account? <a href="/">Login</a></p>
       </form>
 
       <p id="message-box" class="message"></p>
