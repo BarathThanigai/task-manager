@@ -4,6 +4,7 @@ This Task Manager application allows users to create an account and securely log
 
   - Deployment link: `https://task-manager-mcgk.onrender.com/`
   - GitHub repository: `https://github.com/BarathThanigai/task-manager`
+  - Interactive API Documentation (Swagger UI): `https://task-manager-mcgk.onrender.com/docs`
 
 ## Overview
 
